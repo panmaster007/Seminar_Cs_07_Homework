@@ -55,7 +55,7 @@
 }
 
 // здесь располагаем методы для выполнения наших задач
-	double[,] CreateTwoDimensionArrayDouble(int firstLength, int secondLength)
+double[,] CreateTwoDimensionArrayDouble(int firstLength, int secondLength)
 {
 	double[,] result = new double[firstLength, secondLength];
 	Random rnd = new Random();
@@ -70,7 +70,7 @@
 	return result;
 }
 
-string TwoDimensionArrayToString(double[,] array)
+string TwoDimensionArrayToStringDouble(double[,] array)
 {
 	string result = string.Empty; // "";
 
@@ -87,16 +87,72 @@ string TwoDimensionArrayToString(double[,] array)
 	return result;
 }
 
+int[,] CreateTwoDimensionArrayInteger(int firstLength, int secondLength)
+{
+	int[,] result = new int[firstLength, secondLength];
+	Random rnd = new Random();
+
+	for (int i = 0; i < result.GetLength(0); i++)
+	{
+		for (int j = 0; j < result.GetLength(1); j++)
+		{
+			result[i, j] = rnd.Next(0, 10);
+		}
+	}
+	return result;
+}
+
+string TwoDimensionArrayToStringInteger(int[,] array)
+{
+	string result = string.Empty; // "";
+
+	for (int i = 0; i < array.GetLength(0); i++)
+	{
+		for (int j = 0; j < array.GetLength(1); j++)
+		{
+			result += $"{array[i, j]} ";
+		}
+
+		result += Environment.NewLine; // "\n"
+	}
+
+	return result;
+}
+
+int ReadInteger(string argument)
+{
+	Console.Write($"Input {argument}: ");
+	int result = 0;
+
+	while (!int.TryParse(Console.ReadLine(), out result))
+	{
+		Console.WriteLine("Try again");
+	}
+
+	return result;
+}
+
+void ItemPositionAnalysis(int[,]array, int i, int j)
+{
+	int result = 0;
+
+}
+
 void Task_47()
 {
 	// Здесь вызываем необходимые методы для выполнения 47-й задачи
 	double[,] array = CreateTwoDimensionArrayDouble(3, 4);
-	Console.WriteLine(TwoDimensionArrayToString(array));
+	Console.WriteLine(TwoDimensionArrayToStringDouble(array));
 }
 
 void Task_50()
 {
 	// Здесь вызываем необходимые методы для выполнения 50-й задачи
+	int[,] array = CreateTwoDimensionArrayInteger(3, 4);
+	Console.WriteLine(TwoDimensionArrayToStringInteger(array));
+	int i = ReadInteger("Введите номер столбца: ");
+	int j = ReadInteger("Введите номер строки: ");
+
 }
 
 void Task_52()
