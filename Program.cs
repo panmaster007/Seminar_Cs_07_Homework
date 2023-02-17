@@ -54,8 +54,8 @@
 	}
 }
 
-// здесь располагаем методы для выполнения задач
-	double[,] CreateTwoDimensionArray(int firstLength, int secondLength)
+// здесь располагаем методы для выполнения наших задач
+	double[,] CreateTwoDimensionArrayDouble(int firstLength, int secondLength)
 {
 	double[,] result = new double[firstLength, secondLength];
 	Random rnd = new Random();
@@ -64,7 +64,7 @@
 	{
 		for (int j = 0; j < result.GetLength(1); j++)
 		{
-			result[i, j] = rnd.Next(-10, 10);
+			result[i, j] = Math.Round((rnd.NextDouble() * 20) - 10, 1);
 		}
 	}
 	return result;
@@ -90,8 +90,7 @@ string TwoDimensionArrayToString(double[,] array)
 void Task_47()
 {
 	// Здесь вызываем необходимые методы для выполнения 47-й задачи
-
-	double[,] array = CreateTwoDimensionArray(3, 4);
+	double[,] array = CreateTwoDimensionArrayDouble(3, 4);
 	Console.WriteLine(TwoDimensionArrayToString(array));
 }
 
