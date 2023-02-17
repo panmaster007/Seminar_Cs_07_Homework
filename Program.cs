@@ -55,20 +55,54 @@
 }
 
 // здесь располагаем методы для выполнения задач
+	double[,] CreateTwoDimensionArray(int firstLength, int secondLength)
+{
+	double[,] result = new double[firstLength, secondLength];
+	Random rnd = new Random();
+
+	for (int i = 0; i < result.GetLength(0); i++)
+	{
+		for (int j = 0; j < result.GetLength(1); j++)
+		{
+			result[i, j] = rnd.Next(-10, 10);
+		}
+	}
+	return result;
+}
+
+string TwoDimensionArrayToString(double[,] array)
+{
+	string result = string.Empty; // "";
+
+	for (int i = 0; i < array.GetLength(0); i++)
+	{
+		for (int j = 0; j < array.GetLength(1); j++)
+		{
+			result += $"{array[i, j]} ";
+		}
+
+		result += Environment.NewLine; // "\n"
+	}
+
+	return result;
+}
 
 void Task_47()
 {
-	// Здесь вызываем необходимые методы для выполнения 1-й задачи
+	// Здесь вызываем необходимые методы для выполнения 47-й задачи
+
+	double[,] array = CreateTwoDimensionArray(3, 4);
+	Console.WriteLine(TwoDimensionArrayToString(array));
 }
 
 void Task_50()
 {
-	// Здесь вызываем необходимые методы для выполнения 2-й задачи
+	// Здесь вызываем необходимые методы для выполнения 50-й задачи
 }
 
 void Task_52()
 {
-	// Здесь вызываем необходимые методы для выполнения 2-й задачи
+	// Здесь вызываем необходимые методы для выполнения 52-й задачи
 }
 
 TaskMenu();
