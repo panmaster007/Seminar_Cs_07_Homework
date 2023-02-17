@@ -132,10 +132,17 @@ int ReadInteger(string argument)
 	return result;
 }
 
-void ItemPositionAnalysis(int[,]array, int i, int j)
+void ItemPositionAnalysis(int[,] array, int i, int j)
 {
 	int result = 0;
-
+	if ((i - 1) < array.GetLength(0) && (j - 1) < array.GetLength(1))
+	{
+		Console.WriteLine(array[i - 1, j - 1]);
+	}
+	else
+	{
+		Console.WriteLine("Числа на данной позиции не существует!!!");
+	}
 }
 
 void Task_47()
@@ -150,9 +157,9 @@ void Task_50()
 	// Здесь вызываем необходимые методы для выполнения 50-й задачи
 	int[,] array = CreateTwoDimensionArrayInteger(3, 4);
 	Console.WriteLine(TwoDimensionArrayToStringInteger(array));
-	int i = ReadInteger("Введите номер столбца: ");
-	int j = ReadInteger("Введите номер строки: ");
-
+	int i = ReadInteger("Введите номер строки: ");
+	int j = ReadInteger("Введите номер столбца: ");
+	ItemPositionAnalysis(array, i, j);
 }
 
 void Task_52()
