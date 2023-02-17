@@ -4,6 +4,8 @@
 
 	while (exitOut == true)
 	{
+		// **********************************************************************
+		// Здесь мы запрашиваем номер интересующей задачи и выходим
 		Console.WriteLine("Введите номер задачи(47, 50, 52, либо q/Q для выхода):");
 		string selectTask = "";
 		selectTask = Console.ReadLine();
@@ -53,7 +55,7 @@
 		}
 	}
 }
-
+// **********************************************************************
 // здесь располагаем методы для выполнения наших задач
 double[,] CreateTwoDimensionArrayDouble(int firstLength, int secondLength)
 {
@@ -134,7 +136,6 @@ int ReadInteger(string argument)
 
 void ItemPositionAnalysis(int[,] array, int i, int j)
 {
-	int result = 0;
 	if ((i - 1) < array.GetLength(0) && (j - 1) < array.GetLength(1))
 	{
 		Console.WriteLine(array[i - 1, j - 1]);
@@ -145,8 +146,25 @@ void ItemPositionAnalysis(int[,] array, int i, int j)
 	}
 }
 
+void CalculationArithmeticMeanNumbers(int[,] array)
+{	
+	Console.WriteLine();
+	int sum = 0;
+	int arifMeanSum = 0;
+	for (int j = 0; j < array.GetLength(1); j++)
+	{
+		for (int i = 0; i < array.GetLength(0);i++)
+		{
+			sum = sum + array[i, j];
+		}
+		arifMeanSum = sum / (array.GetLength(0) + 1);
+		Console.Write($"{arifMeanSum}; ");
+	}
+}
+
 void Task_47()
 {
+	// **********************************************************************
 	// Здесь вызываем необходимые методы для выполнения 47-й задачи
 	double[,] array = CreateTwoDimensionArrayDouble(3, 4);
 	Console.WriteLine(TwoDimensionArrayToStringDouble(array));
@@ -154,6 +172,7 @@ void Task_47()
 
 void Task_50()
 {
+	// **********************************************************************
 	// Здесь вызываем необходимые методы для выполнения 50-й задачи
 	int[,] array = CreateTwoDimensionArrayInteger(3, 4);
 	Console.WriteLine(TwoDimensionArrayToStringInteger(array));
@@ -164,7 +183,11 @@ void Task_50()
 
 void Task_52()
 {
+	// **********************************************************************
 	// Здесь вызываем необходимые методы для выполнения 52-й задачи
+	int[,] array = CreateTwoDimensionArrayInteger(3, 4);
+	Console.WriteLine(TwoDimensionArrayToStringInteger(array));
+	CalculationArithmeticMeanNumbers(array);
 }
 
 TaskMenu();
