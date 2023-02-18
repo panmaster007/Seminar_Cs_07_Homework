@@ -150,15 +150,16 @@ void CalculationArithmeticMeanNumbers(int[,] array)
 {	
 	Console.WriteLine();
 	int sum = 0;
-	int arifMeanSum = 0;
+	double arifMeanSum = 0;
 	for (int j = 0; j < array.GetLength(1); j++)
 	{
 		for (int i = 0; i < array.GetLength(0);i++)
 		{
 			sum = sum + array[i, j];
 		}
-		arifMeanSum = sum / (array.GetLength(0) + 1);
+		arifMeanSum = (sum / array.GetLength(0)) + (sum % array.GetLength(0) * 0.1 * array.GetLength(0));
 		Console.Write($"{arifMeanSum}; ");
+		sum = 0;
 	}
 }
 
